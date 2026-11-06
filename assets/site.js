@@ -61,7 +61,7 @@ function calculate(){
 const s=service.value,d=duration.value,n=Number(guestInput.value);
 if(s==="couples"&&guestInput.value!=="2")guestInput.value="2";
 const guests=Number(guestInput.value);
-const unit=prices[s]?.[d];
+const unit=d==="60"?prices[s]?.[0]:d==="90"?prices[s]?.[1]:undefined;
 return Number.isInteger(guests)&&guests>=1&&guests<=10&&Number.isFinite(unit)?{amount:unit*(s==="couples"?1:guests),guests}:{amount:null,guests};
 }
 function render(){
